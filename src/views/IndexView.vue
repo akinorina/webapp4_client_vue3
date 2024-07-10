@@ -1,16 +1,4 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-import GeneralModal from '@/components/GereralModal.vue'
-
-const gmodal = ref()
-
-const openModal = () => {
-  gmodal.value.open()
-}
-const closeModal = () => {
-  gmodal.value.close()
-}
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <main>
@@ -19,8 +7,4 @@ const closeModal = () => {
   </main>
 </template>
 
-<style lang="scss">
-main {
-  width: 100vw;
-}
-</style>
+<style lang="scss"></style>

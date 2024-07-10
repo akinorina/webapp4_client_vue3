@@ -1,0 +1,58 @@
+<script setup lang="ts">
+import { ref, defineExpose } from 'vue'
+
+const status = ref(false)
+
+const open = () => {
+  console.log('--- open() ---')
+  status.value = true
+  console.log('status', status.value)
+}
+const close = () => {
+  console.log('--- close() ---')
+  status.value = false
+}
+
+defineExpose({
+  open,
+  close
+})
+</script>
+
+<template>
+  <Teleport to="body">
+    <div class="modal">
+      <div class="modal__background">
+        <div class="modal__content">
+          <slot></slot>
+        </div>
+      </div>
+    </div>
+  </Teleport>
+</template>
+
+<style scoped lang="scss">
+// .modal {
+//   position: absolute;
+//   z-index: 999;
+//   top: 10px;
+//   left: 10px;
+//   background-color: red;
+
+//   &__background {
+//     width: 100vw;
+//     height: 100vh;
+//     background-color: #00000088;
+
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//   }
+
+//   &__content {
+//     width: 500px;
+//     height: 500px;
+//     background-color: red;
+//   }
+// }
+</style>

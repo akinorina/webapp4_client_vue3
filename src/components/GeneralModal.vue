@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { ref, defineExpose } from 'vue'
+import { ref } from 'vue'
+
+const props = defineProps({
+  isCloseModalBack: { type: Boolean, default: true }
+})
 
 const status = ref(false)
 
@@ -8,6 +12,11 @@ const open = () => {
 }
 const close = () => {
   status.value = false
+}
+const closeModalBack = () => {
+  if (props.isCloseModalBack) {
+    status.value = false
+  }
 }
 
 defineExpose({
@@ -18,10 +27,10 @@ defineExpose({
 
 <template>
   <Teleport to="body">
-    <div class="modal" v-if="status">
-      <div class="modal__background">
-        <div class="modal__content">
-          <slot />
+    <div v-if="status" class="modal">
+      <div class="modal__background" @click.stop.prevent="closeModalBack">
+        <div class="modal__content" @click.stop>
+          <slot></slot>
         </div>
       </div>
     </div>
@@ -30,12 +39,9 @@ defineExpose({
 
 <style scoped lang="scss">
 .modal {
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
+  display: block;
 
-  &__background {
+  .modal__background {
     width: 100vw;
     height: 100vh;
     background-color: #00000088;
@@ -43,6 +49,10 @@ defineExpose({
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .modal__content {
+    overflow: hidden;
   }
 }
 </style>

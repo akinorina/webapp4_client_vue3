@@ -17,7 +17,12 @@ const router = createRouter({
     {
       path: '/samples/generalmodal',
       name: 'samples__generalmodal',
-      component: () => import('../views/samples/GeneralModal.vue')
+      component: () => import('../views/samples/GeneralModalView.vue')
+    },
+    {
+      path: '/samples/bsmodal',
+      name: 'samples__bsmodal',
+      component: () => import('../views/samples/BsModalView.vue')
     }
   ]
 })
