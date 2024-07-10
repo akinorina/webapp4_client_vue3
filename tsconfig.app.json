@@ -9,6 +9,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+
+    "isolatedModules": true,
+    "strict": true
   }
 }

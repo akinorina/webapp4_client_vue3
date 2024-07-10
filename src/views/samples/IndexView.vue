@@ -15,7 +15,17 @@ const closeModal = () => {
 <template>
   <main>
     <div class="index">Index</div>
-    <router-link :to="{ name: 'samples' }">samples</router-link>
+    <ul>
+      <li>
+        <router-link :to="{ name: 'index' }">index</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'samples' }">samples</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'samples__generalmodal' }">samples / general-modal</router-link>
+      </li>
+    </ul>
   </main>
 </template>
 

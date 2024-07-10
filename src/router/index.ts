@@ -6,14 +6,19 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'index',
       component: IndexView
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: () => import('../views/AboutView.vue')
-    // }
+    {
+      path: '/samples',
+      name: 'samples',
+      component: () => import('../views/samples/IndexView.vue')
+    },
+    {
+      path: '/samples/generalmodal',
+      name: 'samples__generalmodal',
+      component: () => import('../views/samples/GeneralModal.vue')
+    }
   ]
 })
 
