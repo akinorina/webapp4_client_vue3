@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
 import IndexView from '../views/IndexView.vue'
 
 const router = createRouter({
@@ -10,21 +11,45 @@ const router = createRouter({
       component: IndexView
     },
     {
-      path: '/samples',
-      name: 'samples',
-      component: () => import('../views/samples/IndexView.vue')
+      path: '/admin',
+      name: 'admin',
+      component: () => import('../views/admin/IndexView.vue')
     },
     {
-      path: '/samples/generalmodal',
-      name: 'samples__generalmodal',
-      component: () => import('../views/samples/GeneralModalView.vue')
+      path: '/admin/login',
+      name: 'admin_login',
+      component: () => import('../views/admin/LoginView.vue')
     },
     {
-      path: '/samples/bsmodal',
-      name: 'samples__bsmodal',
-      component: () => import('../views/samples/BsModalView.vue')
+      path: '/admin/samples',
+      name: 'admin_samples',
+      component: () => import('../views/admin/samples/IndexView.vue')
+    },
+    {
+      path: '/admin/samples/generalmodal',
+      name: 'admin_samples_generalmodal',
+      component: () => import('../views/admin/samples/GeneralModalView.vue')
+    },
+    {
+      path: '/admin/samples/bsmodal',
+      name: 'admin_samples_bsmodal',
+      component: () => import('../views/admin/samples/BsModalView.vue')
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore()
+
+  // 行き先ページ
+  const isAdminPage = String(to.name).match(/^admin/) !== null
+  // 現在のログイン状態
+  const isAuthenticated = authStore.isLoggedin()
+  if (to.name !== 'admin_login' && isAdminPage && !isAuthenticated) {
+    next({ name: 'admin_login' })
+  } else {
+    next()
+  }
 })
 
 export default router
