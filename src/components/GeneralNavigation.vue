@@ -20,7 +20,7 @@ const logout = () => {
     </div>
 
     <div class="navigations__right">
-      <template v-if="authStore.isLoggedin()">
+      <template v-if="authStore.isAuthenticated">
         <div>{{ authStore.name }}</div>
         <div>
           <a href="#" @click="logout">logout</a>

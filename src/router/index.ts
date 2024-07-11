@@ -41,13 +41,14 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
 
-  // 行き先ページ
+  // 行き先ページが管理者用ページである判定
   const isAdminPage = String(to.name).match(/^admin/) !== null
-  // 現在のログイン状態
-  const isAuthenticated = authStore.isLoggedin()
-  if (to.name !== 'admin_login' && isAdminPage && !isAuthenticated) {
+
+  if (to.name !== 'admin_login' && isAdminPage && !authStore.isAuthenticated) {
+    // 管理者用ページへ未認証状態で遷移の場合、ログイン画面へ遷移
     next({ name: 'admin_login' })
   } else {
+    // 通常
     next()
   }
 })
