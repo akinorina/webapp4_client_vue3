@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
+import Webapp4Title from '@/components/Webapp4Title.vue'
 
 const authStore = useAuthStore()
 const router = useRouter()
@@ -13,12 +14,7 @@ const submit = async () => {
 
 <template>
   <div class="container main">
-    <div class="px-4 py-2 my-4 text-center border rounded">
-      <h1 class="display-5 fw-bold text-body-emphasis">Login</h1>
-      <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">管理者ログインページ</p>
-      </div>
-    </div>
+    <webapp4-title :title="'Webapp4 管理画面'" :lead="'Webアプリ ver.4 by Akinori N.'" />
 
     <div class="px-4 py-2 my-2 border rounded">
       <main class="form-signin w-100 m-auto">
