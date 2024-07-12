@@ -1,13 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Webapp4Title from '@/components/Webapp4Title.vue'
+</script>
 
 <template>
   <div class="container main">
-    <div class="px-4 py-2 my-3 text-center border rounded">
-      <h1 class="display-5 fw-bold text-body-emphasis">Webapp4</h1>
-      <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Webアプリ ver.4 by Akinori N.</p>
-      </div>
-    </div>
+    <webapp4-title :title="'Webapp4'" :lead="'Webアプリ ver.4 by Akinori N.'" />
 
     <div class="py-2 my-3 border rounded">
       <nav aria-label="breadcrumb">

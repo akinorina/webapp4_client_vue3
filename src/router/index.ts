@@ -13,7 +13,8 @@ const router = createRouter({
     {
       path: '/admin',
       name: 'admin',
-      component: () => import('../views/admin/IndexView.vue')
+      component: () => import('../views/admin/IndexView.vue'),
+      props: false
     },
     {
       path: '/admin/login',
@@ -34,6 +35,29 @@ const router = createRouter({
       path: '/admin/samples/bsmodal',
       name: 'admin_samples_bsmodal',
       component: () => import('../views/admin/samples/BsModalView.vue')
+    },
+    {
+      path: '/admin/users',
+      name: 'admin_users',
+      component: () => import('../views/admin/users/IndexUsers.vue')
+    },
+    {
+      path: '/admin/users/:id',
+      name: 'admin_users_detail',
+      component: () => import('../views/admin/users/DetailUsers.vue'),
+      props: true
+    },
+    {
+      path: '/admin/users/:id/edit',
+      name: 'admin_users_edit',
+      component: () => import('../views/admin/users/EditUsers.vue'),
+      props: true
+    },
+    {
+      path: '/admin/users/new',
+      name: 'admin_users_new',
+      component: () => import('../views/admin/users/NewUsers.vue'),
+      props: true
     }
   ]
 })
