@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 
+interface BsBreadcrumb {
+  link_data: object
+  label: string
+}
+
 // Props
 const props = defineProps({
-  links: Array
+  links: Array<BsBreadcrumb>
 })
 </script>
 
