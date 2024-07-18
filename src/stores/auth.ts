@@ -13,7 +13,7 @@ export const useAuthStore = defineStore('auth', () => {
   const iat = ref(0)
   const exp = ref(0)
   const isAuthenticated = ref(false)
-  let iID: NodeJS.Timeout | undefined = undefined
+  let iID: number = 0
 
   async function login() {
     // login
@@ -32,7 +32,7 @@ export const useAuthStore = defineStore('auth', () => {
     isAuthenticated.value = dayjs().isBefore(dayjs(exp.value))
 
     // 時間切れ処理
-    iID = setInterval(() => {
+    iID = window.setInterval(() => {
       isAuthenticated.value = dayjs().isBefore(dayjs(exp.value))
       if (!isAuthenticated.value) {
         clearInterval(iID)
