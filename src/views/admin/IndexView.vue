@@ -25,6 +25,9 @@ const breadcrumbData: any[] = [
       <div>
         <router-link :to="{ name: 'admin_users' }">ユーザーアカウント</router-link>
       </div>
+      <div>
+        <router-link :to="{ name: 'admin_images' }">画像ライブラリ</router-link>
+      </div>
     </div>
   </div>
 </template>
