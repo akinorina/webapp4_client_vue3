@@ -53,20 +53,22 @@ const submitForm = async () => {
 
     <div class="main">
       <form class="needs-validation" novalidate @submit.prevent="submitForm">
-        <div class="">
-          <label for="familyname" class="form-label">画像表示名</label>
-          <input type="text" class="form-control" id="familyname" v-model="image.name" />
-        </div>
+        <div class="row">
+          <div class="col-12 item">
+            <label for="familyname" class="form-label">画像表示名</label>
+            <input type="text" class="form-control" id="familyname" v-model="image.name" />
+          </div>
 
-        <div class="">
-          <label for="familyname" class="form-label">画像ファイル</label>
-          <input
-            type="file"
-            class="form-control"
-            id="familyname"
-            name="image_file"
-            @change="chooseImage"
-          />
+          <div class="col-12 item">
+            <label for="familyname" class="form-label">画像ファイル</label>
+            <input
+              type="file"
+              class="form-control"
+              id="familyname"
+              name="image_file"
+              @change="chooseImage"
+            />
+          </div>
         </div>
 
         <div class="mt-3">
@@ -86,19 +88,16 @@ const submitForm = async () => {
 
   .users_title {
     position: relative;
-
-    &_text {
-      position: absolute;
-      left: 20px;
-      bottom: 0;
-      font-weight: bold;
-    }
   }
 
   .main {
     input[type='text'],
     input[type='email'] {
       background-color: var(--bs-secondary-bg);
+    }
+
+    .item {
+      margin-bottom: 1rem;
     }
   }
 }

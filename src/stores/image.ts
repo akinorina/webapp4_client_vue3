@@ -60,7 +60,7 @@ export const useImageStore = defineStore('image', () => {
   async function updateImage(id: number) {
     try {
       const options = image.value
-      await axios.put('/api/image/' + id, options)
+      await axios.put('/api/images/' + id, options)
     } catch (err: any) {
       console.error(err.message)
     }
@@ -69,7 +69,7 @@ export const useImageStore = defineStore('image', () => {
   async function deleteImage(id: number) {
     try {
       const options = {}
-      await axios.delete('/api/image/' + id, options)
+      await axios.delete('/api/images/' + id, options)
     } catch (err: any) {
       console.error(err.message)
     }

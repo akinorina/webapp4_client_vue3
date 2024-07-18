@@ -58,10 +58,15 @@ const submitForm = async () => {
             </div>
           </div>
           <div class="col-6">
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <label for="familyname" class="form-label">表示名</label>
-                <input type="text" class="form-control" id="familyname" v-model="image.name" />
+            <div class="row">
+              <div class="col-sm-6" style="width: 100%">
+                <label for="imagename" class="form-label">表示名</label>
+                <input
+                  type="text"
+                  class="form-control imagename"
+                  id="imagename"
+                  v-model="image.name"
+                />
               </div>
             </div>
           </div>
@@ -83,16 +88,6 @@ const submitForm = async () => {
     </template>
     <template #close>いいえ</template>
   </BsModal>
-
-  <!-- 
-  <BsModal ref="deleteModal">
-    <template #title>削除してよろしいですか？</template>
-    <template #footer>
-      <button type="button" class="btn btn-danger" @click="deleteIt">削除</button>
-    </template>
-    <template #close>いいえ</template>
-  </BsModal>
-  -->
 </template>
 
 <style scoped lang="scss">
@@ -103,17 +98,14 @@ const submitForm = async () => {
 
   .users_title {
     position: relative;
-
-    &_text {
-      position: absolute;
-      left: 20px;
-      bottom: 0;
-      font-weight: bold;
-    }
   }
   .image {
     max-width: 100%;
     max-height: 650px;
+  }
+
+  .imagename {
+    width: 100%;
   }
 }
 </style>

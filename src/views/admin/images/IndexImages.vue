@@ -41,9 +41,9 @@ const toDetail = (iid: number) => {
 
     <div class="body">
       <div class="">
-        <div class="row g-1 images">
+        <div class="row images">
           <div
-            class="col-12 col-sm-6 col-md-4 col-lg-3 col-xxl-2 g-3 d-flex justify-content-center align-items-center frame"
+            class="col-12 col-sm-6 col-md-4 col-lg-3 col-xxl-2 d-flex justify-content-center align-items-center frame"
             v-for="(item, index) in imageStore.images"
             :key="index"
           >
@@ -65,45 +65,27 @@ const toDetail = (iid: number) => {
 <style scoped lang="scss">
 .main {
   min-height: 100vh;
-  color: var(--bs-body-color);
-  background-color: var(--bs-body-bg);
-
-  // .users_title {
-  //   position: relative;
-
-  //   &_text {
-  //     position: absolute;
-  //     left: 20px;
-  //     bottom: 0;
-  //   }
-  // }
 
   .ope {
-    button {
-      background-color: var(--bs-secondary-bg);
-    }
+    margin-bottom: 16px;
   }
 
   .body {
     .images {
-      // border: 1px #00f solid;
       .frame {
-        height: 250px;
-        // border: 10px #fcfcfc solid;
-        padding: 10px;
+        height: 220px;
 
         .item {
-          width: 180px;
-          height: 180px;
-          // border: 1px #888 dotted;
+          width: 210px;
+          height: 210px;
 
           display: flex;
           justify-content: center;
           align-items: center;
 
           .image {
-            max-width: 180px;
-            max-height: 180px;
+            max-width: 210px;
+            max-height: 210px;
           }
         }
       }
